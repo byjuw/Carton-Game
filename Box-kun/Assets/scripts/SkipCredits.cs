@@ -11,7 +11,9 @@ public class SkipCredits : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space ) || Input.GetKeyDown(KeyCode.Return)) Application.LoadLevel("start");
-			
+		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) Application.LoadLevel("opening");
+	}
+	public void onClickStart() {
+		Application.LoadLevel("opening");
 	}
 }
