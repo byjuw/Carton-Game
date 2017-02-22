@@ -4,3 +4,6 @@ bassin d'eau
 presse - raphael done
 ressort
 Perso principale ( carton ) - Caroline
+Background
+Start screen
+GameOver screen
