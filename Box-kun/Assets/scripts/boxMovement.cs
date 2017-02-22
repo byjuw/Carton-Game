@@ -5,7 +5,7 @@ using UnityEngine;
 public class boxMovement : MonoBehaviour
 {
 	public float acceleration_x = 10f;
-	public float speed = 10f;
+	public float speed = 15f;
 	private bool grounded = true;
 	private float jump_pressure = 0f;
 	private float jump_pressure_max = 10f;
@@ -46,7 +46,7 @@ public class boxMovement : MonoBehaviour
 			//Chargement jump
 			if (Input.GetButton ("Jump")) {
 				if (jump_pressure < jump_pressure_max) {
-					jump_pressure += Time.deltaTime * 10f;
+					jump_pressure += Time.deltaTime * 5 * 10f;
 				}
 				else {
 					jump_pressure = jump_pressure_max;
