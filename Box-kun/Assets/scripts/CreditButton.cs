@@ -13,6 +13,6 @@ public class CreditButton : MonoBehaviour {
 	}
 
 	public void onClickCredit() {
-		Application.LoadLevel("credits");
+		Application.LoadLevel("credit");
 	}
 }
