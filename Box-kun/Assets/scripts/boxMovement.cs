@@ -7,7 +7,7 @@ public class boxMovement : MonoBehaviour
 	public float acceleration_x = 10f;
 	public float speed = 13f;
 	private bool grounded = true;
-	public float jump_pressure = 0f;
+	public float jump_pressure = 25f;
 	public float jump_pressure_max = 25f;
 	public float jump_min = 4f;
 	private Rigidbody2D rb;
@@ -36,23 +36,26 @@ public class boxMovement : MonoBehaviour
 		if (grounded && (goRot < 80 && goRot > -80)) {
 			//Chargement jump
 			if (Input.GetButton ("Jump")) {
-				if (jump_pressure < jump_pressure_max) {
-					jump_pressure += Time.deltaTime * 5 * 10f;
 
-
-				}
-				else {
-					jump_pressure = jump_pressure_max;
-				}
+				rb.velocity = new Vector2 (rb.velocity.x, jump_pressure);
+				grounded = false;
+//				if (jump_pressure < jump_pressure_max) {
+//					jump_pressure += Time.deltaTime * 5 * 10f;
+//
+//
+//				}
+//				else {
+//					jump_pressure = jump_pressure_max;
+//				}
 			}
-			else {
-				if (jump_pressure > 0f) {
-					jump_pressure += jump_min;
-					rb.velocity = new Vector2 (rb.velocity.x, jump_pressure);
-					jump_pressure = 0f;
-					grounded = false;
-				}
-			}
+//			else {
+//				if (jump_pressure > 0f) {
+//					jump_pressure += jump_min;
+//					rb.velocity = new Vector2 (rb.velocity.x, jump_pressure);
+//					jump_pressure = 0f;
+//					grounded = false;
+//				}
+//			}
 		}
 	}
 
