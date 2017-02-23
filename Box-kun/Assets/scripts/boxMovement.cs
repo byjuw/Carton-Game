@@ -5,17 +5,15 @@ using UnityEngine;
 public class boxMovement : MonoBehaviour
 {
 	public float acceleration_x = 10f;
-	public float speed = 15f;
+	public float speed = 13f;
 	private bool grounded = true;
-	private float jump_pressure = 0f;
-	private float jump_pressure_max = 10f;
-	private float jump_min = 2f;
+	public float jump_pressure = 0f;
+	public float jump_pressure_max = 25f;
+	public float jump_min = 4f;
 	private Rigidbody2D rb;
-	int rotCount = 0;
-	bool rotating = false;
-
-	// tags that can destroy the sub
-	public string[] destroyers;
+	private GameObject go;
+	private float goRot;
+	private float goScale;
 
 	// Use this for initialization
 	void Start()
@@ -26,27 +24,22 @@ public class boxMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+
+		goRot = Quaternion.Angle (Quaternion.Euler (new Vector3 (0, 0, 0)), transform.rotation);
+		goScale = transform.localScale.y;
 		//Horizontal Movement
 		rb.velocity = new Vector2 (speed + Input.GetAxis ("Horizontal") * acceleration_x, rb.velocity.y);
-
 		//Rotation
-		if (!rotating && Input.GetKeyDown(KeyCode.LeftArrow)) {
-			rotCount = (rotCount + 1) % 4;
-			DoRotation();
-		}
-
-		if (!rotating && Input.GetKeyDown(KeyCode.RightArrow)) {
-			rotCount = (rotCount - 1) % 4;
-			DoRotation();
-		}
-
+		transform.Rotate (0, 0, -Input.GetAxis ("Horizontal") * 10);
 
 		//Jump
-		if (grounded && rotCount ==0 && !rotating) {
+		if (grounded && (goRot < 80 && goRot > -80)) {
 			//Chargement jump
 			if (Input.GetButton ("Jump")) {
 				if (jump_pressure < jump_pressure_max) {
 					jump_pressure += Time.deltaTime * 5 * 10f;
+
+
 				}
 				else {
 					jump_pressure = jump_pressure_max;
@@ -69,15 +62,5 @@ public class boxMovement : MonoBehaviour
 		if (coll.gameObject.tag == "ground") {
 			grounded = true;
 		}
-	}
-
-	void DoRotation() {
-		rotating = true;
-		var rot = rotCount * 90.0;
-		iTween.RotateTo(gameObject, iTween.Hash("z",rot, "oncomplete","EndRotation", "time",0.5));
-	}
-
-	void EndRotation() {
-		rotating = false;
 	}
 }
