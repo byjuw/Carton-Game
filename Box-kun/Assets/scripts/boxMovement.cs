@@ -65,6 +65,7 @@ public class boxMovement : MonoBehaviour
 			if (Input.GetButton ("Jump")) {
 				rb.velocity = new Vector2 (speed2 + rb.velocity.x, jump_pressure);
 				jumping2 = true;
+				jump.Play();
 			}
 		}
 	}

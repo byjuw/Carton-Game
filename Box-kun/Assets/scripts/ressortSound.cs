@@ -7,7 +7,7 @@ public class ressortSound : MonoBehaviour {
 	private AudioSource ressort;
 
 	void Start () {
-		ressort = GameObject.Find ("Ressort").GetComponent<AudioSource> ();
+		ressort = GameObject.Find ("RessortEffect").GetComponent<AudioSource> ();
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
