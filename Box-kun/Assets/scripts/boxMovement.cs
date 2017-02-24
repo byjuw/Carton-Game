@@ -34,38 +34,38 @@ public class boxMovement : MonoBehaviour
 		//Horizontal Movement
 		if (end) {
 			rb.velocity = new Vector2 (0, 0);
-		} else if (grounded && !jumping && !jumping2) {
-			if (grounded && !jumping && !jumping2) {
-				rb.velocity = new Vector2 (speed + Input.GetAxis ("Horizontal") * acceleration_x, rb.velocity.y);
-			} else if (grounded2 && !jumping && !jumping2) {
-				rb.velocity = new Vector2 (speed2 + Input.GetAxis ("Horizontal") * acceleration_x, rb.velocity.y);
-			} else if (jumping) {
-				rb.velocity = new Vector2 (speed / 5 + Input.GetAxis ("Horizontal") * accelerationJump, rb.velocity.y);
-			} else if (jumping2) {
-				rb.velocity = new Vector2 (speed2 / 5 + Input.GetAxis ("Horizontal") * accelerationJump, rb.velocity.y);
+		}
+		else if (grounded && !jumping && !jumping2) {
+			rb.velocity = new Vector2 (speed + Input.GetAxis ("Horizontal") * acceleration_x, rb.velocity.y);
+		} else if (grounded2 && !jumping && !jumping2) {
+			rb.velocity = new Vector2 (speed2 + Input.GetAxis ("Horizontal") * acceleration_x, rb.velocity.y);
+		} else if (jumping) {
+			rb.velocity = new Vector2 (speed/5 +  Input.GetAxis ("Horizontal") * accelerationJump, rb.velocity.y);
+		} else if (jumping2) {
+			rb.velocity = new Vector2 (speed2/5  + Input.GetAxis ("Horizontal") * accelerationJump, rb.velocity.y);
+		}
+
+		//Rotation
+		transform.Rotate (0, 0, -Input.GetAxis ("Horizontal") * 10);
+
+		//Jump
+		if (grounded && (goRot < 80 && goRot > -80)) {
+			//Chargement jump
+			if (Input.GetButton ("Jump")) {
+
+				rb.velocity = new Vector2 (speed + rb.velocity.x, jump_pressure);
+				jumping = true;
+
 			}
 
-			//Rotation
-			transform.Rotate (0, 0, -Input.GetAxis ("Horizontal") * 10);
-
-			//Jump
-			if (grounded && (goRot < 80 && goRot > -80)) {
-				//Chargement jump
-				if (Input.GetButton ("Jump")) {
-
-					rb.velocity = new Vector2 (speed + rb.velocity.x, jump_pressure);
-					jumping = true;
-
-				}
-
-			} else if (grounded2 && (goRot < 80 && goRot > -80)) {
-				if (Input.GetButton ("Jump")) {
-					rb.velocity = new Vector2 (speed2 + rb.velocity.x, jump_pressure);
-					jumping2 = true;
-				}
+		} else if (grounded2 && (goRot < 80 && goRot > -80)) {
+			if (Input.GetButton ("Jump")) {
+				rb.velocity = new Vector2 (speed2 + rb.velocity.x, jump_pressure);
+				jumping2 = true;
 			}
 		}
 	}
+
 
 	//Detection ground
 	void OnCollisionEnter2D(Collision2D coll)
@@ -80,7 +80,7 @@ public class boxMovement : MonoBehaviour
 			jumping = false;
 			jumping2 = false;
 		}
-		if (coll.gameObject.tag == "finish") {
+		if (coll.gameObject.tag == "Finish") {
 			end = true;
 		}
 	}
