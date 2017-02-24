@@ -38,6 +38,7 @@ public class boxMovement : MonoBehaviour
 			rb.velocity = new Vector2 (0, 0);
 		}
 		else if (grounded && !jumping && !jumping2) {
+		if (grounded && !jumping && !jumping2) {
 			rb.velocity = new Vector2 (speed + Input.GetAxis ("Horizontal") * acceleration_x, rb.velocity.y);
 		} else if (grounded2 && !jumping && !jumping2) {
 			rb.velocity = new Vector2 (speed2 + Input.GetAxis ("Horizontal") * acceleration_x, rb.velocity.y);
@@ -66,7 +67,6 @@ public class boxMovement : MonoBehaviour
 				jumping2 = true;
 			}
 		}
-
 	}
 
 	//Detection ground
@@ -95,5 +95,14 @@ public class boxMovement : MonoBehaviour
 			grounded2 = false;
 		}
 	}
-
+	}
+	void OnCollisionExit2D(Collision2D collLeave) 
+	{
+		if (collLeave.gameObject.tag == "ground") {
+			grounded = false;
+		}
+		if (collLeave.gameObject.tag == "ground2") {
+			grounded2 = false;
+		}
+	}
 }
