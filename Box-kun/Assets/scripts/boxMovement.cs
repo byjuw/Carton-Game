@@ -19,11 +19,13 @@ public class boxMovement : MonoBehaviour
 	private GameObject go;
 	private float goRot;
 	private bool end = false;
+	private AudioSource jump;
 
 	// Use this for initialization
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D> ();
+		jump = GameObject.Find ("Jump").GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
@@ -55,6 +57,7 @@ public class boxMovement : MonoBehaviour
 
 				rb.velocity = new Vector2 (speed + rb.velocity.x, jump_pressure);
 				jumping = true;
+				jump.Play();
 
 			}
 
