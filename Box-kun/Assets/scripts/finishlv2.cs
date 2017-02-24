@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class finish : MonoBehaviour {
+public class finishlv2 : MonoBehaviour {
 	private Animation animation;
 
 	// Use this for initialization
@@ -25,6 +25,6 @@ public class finish : MonoBehaviour {
 	}
 	IEnumerator WaitElevator(){
 		yield return new WaitForSeconds(5);
-		Application.LoadLevel("lvl2");
+		Application.LoadLevel("end");
 	}
 }
