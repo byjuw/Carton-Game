@@ -31,6 +31,8 @@ public class boxMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		//Leave go to start
+		if (Input.GetKeyDown(KeyCode.Escape)) Application.LoadLevel("opening");
 
 		goRot = Quaternion.Angle (Quaternion.Euler (new Vector3 (0, 0, 0)), transform.rotation);
 		//Horizontal Movement

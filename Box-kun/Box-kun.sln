@@ -1,9 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{12371C8F-10B1-686E-EC26-347006BAD17E}") = "Box-kun", "Assembly-CSharp-firstpass.csproj", "{8CA0165E-D5CA-7708-6466-4310990DB880}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Box-kun", "Assembly-CSharp-firstpass.csproj", "{8CA0165E-D5CA-7708-6466-4310990DB880}"
 EndProject
-Project("{12371C8F-10B1-686E-EC26-347006BAD17E}") = "Box-kun", "Assembly-CSharp.csproj", "{0A56D239-C230-796E-3BCF-C8A38B02B82E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Box-kun", "Assembly-CSharp.csproj", "{0A56D239-C230-796E-3BCF-C8A38B02B82E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

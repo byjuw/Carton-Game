@@ -12,7 +12,7 @@ public class StartButton : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) Application.LoadLevel("lvl1");
+		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) onClickStart();
 	}
 
 	public void onClickStart() {
@@ -20,7 +20,7 @@ public class StartButton : MonoBehaviour {
 		StartCoroutine(WaitKage());
 	}
 	IEnumerator WaitKage(){
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(1.2f);
 
 		Application.LoadLevel("lvl1");
 	}
