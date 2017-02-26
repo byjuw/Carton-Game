@@ -4,16 +4,15 @@
 <head>
 
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Scrolling Nav - Start Bootstrap Template</title>
-
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <script src="TemplateData/UnityProgress.js"></script>
+    <title>Ligne Numerique - La boite</title>
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="assets/css/scrolling-nav.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -107,7 +106,15 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h1>Le jeu</h1>
-                    placeholder jeu
+                </div>
+                <div class="template">
+                   <div class="template-wrap clear">
+                    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
+                    <br>
+                    <div class="logo"></div>
+                    <div class="fullscreen"><img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
+                    <div class="title">Box-kun</div>
+                  </div>
                 </div>
             </div>
         </div>
@@ -198,6 +205,20 @@
     <!-- Scrolling Nav JavaScript -->
     <script src="assets/js/jquery.easing.min.js"></script>
     <script src="assets/js/scrolling-nav.js"></script>
+     <script type='text/javascript'>
+      var Module = {
+        TOTAL_MEMORY: 268435456,
+        errorhandler: null,     // arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+        compatibilitycheck: null,
+        backgroundColor: "#222C36",
+        splashStyle: "Light",
+        dataUrl: "Release/SiteWeb.data",
+        codeUrl: "Release/SiteWeb.js",
+        asmUrl: "Release/SiteWeb.asm.js",
+        memUrl: "Release/SiteWeb.mem",
+      };
+    </script>
+    <script src="Release/UnityLoader.js"></script>
 
 </body>
 
