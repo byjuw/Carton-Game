@@ -1,25 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class boxMovement : MonoBehaviour
 {
 	public float acceleration_x = 10f;
-	private float accelerationJump = 15f;
 	public float speed = 10f;
 	public float speed2 = -10f;
+	public float jump_pressure = 25f;
+	public float jump_pressure_max = 25f;
+	public float jump_min = 4f;
+	public static float score = 0f;
+	private float accelerationJump = 15f;
 	private bool grounded = false;
 	private bool grounded2 = false;
 	private bool jumping = false;
 	private bool jumping2 = false;
-	public float jump_pressure = 25f;
-	public float jump_pressure_max = 25f;
-	public float jump_min = 4f;
+	public static bool scorable = true;
 	private Rigidbody2D rb;
 	private GameObject go;
 	private float goRot;
 	private bool end = false;
 	private AudioSource jump;
+
 
 	// Use this for initialization
 	void Start()
@@ -70,6 +74,19 @@ public class boxMovement : MonoBehaviour
 				jump.Play();
 			}
 		}
+
+		if (scorable) {
+			UpdateScore ();
+		}
+	}
+
+	void UpdateScore(){
+		Scene currentScene = SceneManager.GetActiveScene ();
+		if (currentScene.name == "lvl1") {
+			ScoreScript.scorelvl1 = (float)System.Math.Round ((double)Time.timeSinceLevelLoad, 2);
+		} else if (currentScene.name == "lvl2") {
+			ScoreScript.scorelvl2 = (float)System.Math.Round ((double)Time.timeSinceLevelLoad, 2);
+		}
 	}
 
 
@@ -99,4 +116,4 @@ public class boxMovement : MonoBehaviour
 			grounded2 = false;
 		}
 	}
-	}
+}
