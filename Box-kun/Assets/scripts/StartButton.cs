@@ -21,7 +21,6 @@ public class StartButton : MonoBehaviour {
 	}
 	IEnumerator WaitKage(){
 		yield return new WaitForSeconds(1.2f);
-
 		Application.LoadLevel("lvl1");
 	}
 }

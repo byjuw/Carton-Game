@@ -30,6 +30,7 @@ public class boxMovement : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D> ();
 		jump = GameObject.Find ("Jump").GetComponent<AudioSource> ();
+		scorable = true;
 	}
 
 	// Update is called once per frame
@@ -81,12 +82,11 @@ public class boxMovement : MonoBehaviour
 	}
 
 	void UpdateScore(){
-		Scene currentScene = SceneManager.GetActiveScene ();
-		if (currentScene.name == "lvl1") {
-			ScoreScript.scorelvl1 = (float)System.Math.Round ((double)Time.timeSinceLevelLoad, 2);
-		} else if (currentScene.name == "lvl2") {
-			ScoreScript.scorelvl2 = (float)System.Math.Round ((double)Time.timeSinceLevelLoad, 2);
-		}
+		ScoreScript.score = (float)System.Math.Round ((double)Time.timeSinceLevelLoad, 2);
+		print("score :");
+		print (ScoreScript.score);
+		print("score total :");
+		print (ScoreScript.scoreTotal);
 	}
 
 

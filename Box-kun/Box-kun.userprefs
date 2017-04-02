@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ScoreHL.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\ScoreHL.cs">
     <Files>
-      <File FileName="Assets\scripts\boxMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\ScoreScript.cs" Line="17" Column="12" />
-      <File FileName="Assets\scripts\finish.cs" Line="1" Column="1" />
-      <File FileName="Assets\scripts\finishlv2.cs" Line="1" Column="1" />
-      <File FileName="Assets\ScoreHL.cs" Line="25" Column="64" />
+      <File FileName="Assets\scripts\boxMovement.cs" Line="33" Column="19" />
+      <File FileName="Assets\scripts\finish.cs" Line="21" Column="30" />
+      <File FileName="Assets\scripts\finishlv2.cs" Line="26" Column="33" />
+      <File FileName="Assets\scripts\StartButton.cs" Line="22" Column="44" />
+      <File FileName="Assets\scripts\ScoreScript.cs" Line="31" Column="21" />
+      <File FileName="Assets\scripts\ScoreHL.cs" Line="22" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

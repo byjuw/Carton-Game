@@ -18,7 +18,7 @@ public class ScoreHL : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {		
-		text.text = " Best : " + PlayerPrefs.GetFloat("lhScoreTotal");
+	void Update () {
+		text.text = "" + PlayerPrefs.GetFloat("hlscore");
 	}
 }
